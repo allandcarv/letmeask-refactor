@@ -1,5 +1,14 @@
 import React from 'react';
 
-const Admin: React.FC = () => <h1>Admin</h1>;
+import Header from '../components/Header';
+
+const Admin: React.FC = () => (
+  <>
+    <Header />
+    <main>
+      <h1>Admin</h1>
+    </main>
+  </>
+);
 
 export default Admin;
