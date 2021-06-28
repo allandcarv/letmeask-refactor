@@ -50,6 +50,7 @@ const buttonHover = {
 export const StyledButton = styled.button<ButtonProps>`
   height: 50px;
   border: 0;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
