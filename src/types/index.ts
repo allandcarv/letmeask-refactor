@@ -1,1 +1,2 @@
-export * from './button-type';
+export * from './button-sizes';
+export * from './button-types';
