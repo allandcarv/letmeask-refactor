@@ -1,7 +1,7 @@
 export const colors = {
   black: '#29292E',
   shadow: '#050206',
-  purple: '#050206',
+  purple: '#835AFD',
   red: '#E73F5D',
   gray: {
     dark: '#737380',
