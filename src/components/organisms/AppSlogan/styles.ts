@@ -16,5 +16,10 @@ export const StyledSection = styled.section`
 
   h1 {
     margin-bottom: 16px;
+    color: ${colors.white.light};
+  }
+
+  h2 {
+    color: ${colors.white.dark};
   }
 `;
