@@ -7,13 +7,13 @@ import { colors } from '../../../styles';
 
 const buttonSizes = {
   'btn-lg': css`
-    width: 320px;
+    max-width: 320px;
   `,
   'btn-md': css`
-    width: 177px;
+    max-width: 177px;
   `,
   'btn-sm': css`
-    width: 24px;
+    max-width: 24px;
   `,
 };
 
@@ -49,6 +49,7 @@ const buttonHover = {
 
 export const StyledButton = styled.button<ButtonProps>`
   height: 50px;
+  width: 90%;
   border: 0;
   border-radius: 8px;
   display: flex;

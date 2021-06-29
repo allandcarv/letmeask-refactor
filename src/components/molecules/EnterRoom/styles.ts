@@ -9,7 +9,8 @@ export const StyledInput = styled(Input)`
 `;
 
 export const StyledP = styled.p`
-  width: 320px;
+  width: 90%;
+  max-width: 320px;
   display: flex;
   align-items: center;
   margin: 32px 0;

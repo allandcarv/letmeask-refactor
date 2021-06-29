@@ -6,7 +6,7 @@ import { colors } from '../../../styles';
 
 const inputSizes = {
   'input-lg': css`
-    width: 320px;
+    max-width: 320px;
   `,
   'input-md': css``,
   'input-sm': css``,
@@ -14,6 +14,7 @@ const inputSizes = {
 
 export const StyledInput = styled.input<InputProps>`
   height: 50px;
+  width: 90%;
   padding: 13px 12px 13px 16px;
   border: 1px solid ${colors.gray.medium};
   border-radius: 8px;

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { MEDIA_QUERIES } from '../../../constants';
 
 export const StyledSection = styled.section`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
