@@ -19,6 +19,7 @@ const typography = {
 };
 
 export const Element = styled.span<Typography>`
+  font: 400 1rem 'Roboto', sans-serif;
   color: ${colors.black};
 
   ${props => typography[props.element]}

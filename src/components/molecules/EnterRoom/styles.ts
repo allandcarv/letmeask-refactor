@@ -13,6 +13,7 @@ export const StyledP = styled.p`
   display: flex;
   align-items: center;
   margin: 32px 0;
+  font: 400 1rem 'Roboto', sans-serif;
   color: ${colors.gray.medium};
 
   &::before,
