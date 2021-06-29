@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { colors } from '../../../styles';
 
 export const StyledSection = styled.section`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
