@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from '../components/Header';
+import Header from '../organisms/Header';
 
-import { useAuth } from '../hooks';
+import { useAuth } from '../../hooks';
 
 const Home: React.FC = () => {
   const { user } = useAuth();

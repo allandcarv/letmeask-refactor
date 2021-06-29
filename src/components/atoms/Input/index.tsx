@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { InputProps } from '../../interfaces';
+import { InputProps } from '../../../interfaces';
 
 import { StyledInput } from './styles';
 

@@ -1,9 +1,9 @@
 /* eslint-disable arrow-parens */
 import styled, { css } from 'styled-components';
 
-import { ButtonProps } from '../../interfaces';
+import { ButtonProps } from '../../../interfaces';
 
-import { colors } from '../../styles';
+import { colors } from '../../../styles';
 
 const buttonSizes = {
   'btn-lg': css`

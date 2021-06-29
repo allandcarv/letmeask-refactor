@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { InputProps } from '../../interfaces';
+import { InputProps } from '../../../interfaces';
 
-import { colors } from '../../styles';
+import { colors } from '../../../styles';
 
 const inputSizes = {
   'input-lg': css`

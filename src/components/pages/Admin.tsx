@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../components/Header';
+import Header from '../organisms/Header';
 
 const Admin: React.FC = () => (
   <>
