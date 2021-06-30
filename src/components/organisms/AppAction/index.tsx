@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import googleImg from '../../../assets/images/google-icon.svg';
 import logoImg from '../../../assets/images/logo.svg';
@@ -7,20 +8,34 @@ import Button from '../../atoms/Button';
 
 import EnterRoom from '../../molecules/EnterRoom';
 
-import { useFirebase } from '../../../hooks';
+import { useAuth, useFirebase, useToast } from '../../../hooks';
 
 import { StyledSection } from './styles';
 
 import { SignInProvider } from '../../../types';
 
 const AppAction: React.FC = () => {
-  // const { user, setUser } = useAuth();
+  const { setUser } = useAuth();
   const { signIn } = useFirebase();
+  const { error } = useToast();
+  const history = useHistory();
 
   async function handleSignIn(provider: SignInProvider) {
     const result = await signIn(provider);
 
-    console.log(result.user);
+    if (!result.user) {
+      error(
+        'Ocorreu um erro na autenticação, por favor tente novamente mais tarde',
+      );
+    }
+
+    setUser({
+      avatar: result.user?.photoURL || '',
+      id: result.user?.uid || '',
+      name: result.user?.displayName || '',
+    });
+
+    history.push('/');
   }
 
   return (

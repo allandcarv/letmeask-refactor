@@ -4,20 +4,24 @@ import React, { createContext, useEffect, useState } from 'react';
 
 import { useFirebase } from '../hooks/useFirebase';
 
-import { AuthContextData } from '../interfaces';
+import { AuthContextData, User } from '../interfaces';
 
 export const AuthContext = createContext<AuthContextData>(
   {} as AuthContextData,
 );
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({} as User);
   const { auth } = useFirebase();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(newUser => {
       if (newUser) {
-        setUser(_ => newUser);
+        setUser(_ => ({
+          avatar: newUser.photoURL || '',
+          id: newUser.uid || '',
+          name: newUser.displayName || '',
+        }));
       }
     });
 

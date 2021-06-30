@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
+import { User } from '.';
+
 export interface AuthContextData {
-  user: Record<string, unknown>;
-  setUser: (value: React.SetStateAction<Record<string, unknown>>) => void;
+  user: User;
+  setUser: (value: React.SetStateAction<User>) => void;
 }
