@@ -1,6 +1,7 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-unused-vars */
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useState } from 'react';
 
 import { useFirebase } from '../hooks/useFirebase';
 
@@ -11,25 +12,36 @@ export const AuthContext = createContext<AuthContextData>(
 );
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState({} as User);
+  const [user, setUser] = useState(() => {
+    const storedUser = localStorage.getItem('user');
+
+    if (storedUser) return JSON.parse(storedUser);
+
+    return {} as User;
+  });
+
   const { auth } = useFirebase();
+
+  const setUserToLocalStorage = useCallback(() => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }, [user]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(newUser => {
-      if (newUser) {
-        setUser(_ => ({
-          avatar: newUser.photoURL || '',
-          id: newUser.uid || '',
-          name: newUser.displayName || '',
-        }));
-      }
+      setUser(() => ({
+        avatar: newUser?.photoURL || '',
+        id: newUser?.uid || '',
+        name: newUser?.displayName || '',
+      }));
     });
 
     return () => unsubscribe();
   }, [auth]);
 
+  useEffect(() => setUserToLocalStorage(), [user, setUserToLocalStorage]);
+
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, setUserToLocalStorage }}>
       {children}
     </AuthContext.Provider>
   );

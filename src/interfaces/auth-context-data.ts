@@ -6,4 +6,5 @@ import { User } from '.';
 export interface AuthContextData {
   user: User;
   setUser: (value: React.SetStateAction<User>) => void;
+  setUserToLocalStorage: () => void;
 }
